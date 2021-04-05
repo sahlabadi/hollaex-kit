@@ -99,12 +99,12 @@ const DEPOSIT = {
 		PENDING: (amount, confirmation = 1, currency) =>
 			`لديك إيداع جديد بمبلغ  {amount}$ ${currency.toUpperCase()}  في قيد الانتظار في محفظتك ${API_NAME()} .يرجى الانتظار حتى يتم تأكيد المعاملة وستتوفر أموالك في محفظتك. تتطلب معاملتك  ${confirmation} تأكيداً (تأكيداتٍ) على البلوك تشين.`,
 		COMPLETED: (amount, confirmation, currency) =>
-			`Yايداعك لـ
-       ${
-        currency.toUpperCase()
-        لـ ${amount} ${currency.toUpperCase()} قد تم تأكيده و تكميله و موجود في ${
-				currency.toUpperCase()
-			. محفظتك }`,
+			`ايداعك لـ
+		       ${
+		currency.toUpperCase()
+			} لـ ${amount} ${currency.toUpperCase()} قد تم تأكيده و تكميله و موجود في ${
+		currency.toUpperCase()
+			}.محفظتك`,
 		1: (amount, currency) => `${COMMON.AMOUNT(amount)} ${currency.toUpperCase()}`,
 		2: (status) => `الحالة:  ${status}`,
 		3: (address) => COMMON.ADDRESS(address),
@@ -283,7 +283,7 @@ const INVITEDOPERATOR = {
 		CREATED: {
 			1: (role, invitingEmail) => `لقد تمت دعوتك كعامل (operator) إلى ${API_NAME()} مع دور ${role}  بواسطة المستخدم $ {invitingEmail}.`,
 			2: 'يتم توفير كلمة المرور المؤقتة الخاصة بك أدناه. تأكد من تغيير كلمة المرور الخاصة بك بعد تسجيل الدخول لأسباب أمنية.',
-			3: (email) => `${email:البريد الإلكتروني} `,
+			3: (email) => `${email}:البريد الإلكتروني `,
 			4: (password) => `${password}:كلمة المرور `,
 			5: 'Login'
 		},
