@@ -597,7 +597,7 @@ const nestedContent = {
 			'قم بتغيير إعدادات حسابك. من واجهة المستخدم والإشعارات واسم المستخدم والتخصيصات الأخرى.',
 		TITLE_TEXT_2: 'سيؤدي حفظ الإعدادات إلى تطبيق التغييرات وحفظها.',
 		TITLE_NOTIFICATION: 'إشعارات',
-		TITLE_INTERFACE: 'إشعارات',
+		TITLE_INTERFACE: 'واجهة المستخدم',
 		TITLE_LANGUAGE: 'لغة',
 		TITLE_CHAT: 'محادثة',
 		TITLE_AUDIO_CUE: 'شغل إشاره الصوت',
