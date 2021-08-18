@@ -16,6 +16,8 @@ let passWord = process.env.PASSWORD;
 let newPassWord = process.env.NEWPASS;
 let webSite = process.env.WEBSITE;
 let emailAdmin =process.env.Email_ADMIN_USERNAME;
+let emailPassword = process.env.EMAIL_PASSWORD;
+
 if (process.env.NODE_ENV == 'test') {
 	console.log('Variables are defined');
 }
@@ -66,7 +68,7 @@ describe('NewUserRequest', function() {
 	it('Email Confirmation', async function() {
 		console.log('Test name: Confirmation');
 		console.log('Step # | name | target | value');
-		await defNewUser.emailLogIn(driver,emailAdmin,passWord);
+		await defNewUser.emailLogIn(driver,emailAdmin,emailPassword);
 		await driver.wait(until.elementIsEnabled(await driver.findElement(By.css('.x-grid3-row:nth-child(1) .subject:nth-child(1) > .grid_compact:nth-child(1)'))), 50000);
 		await driver.findElement(By.css('.x-grid3-row:nth-child(1) .subject:nth-child(1) > .grid_compact:nth-child(1)')).click();
 		console.log('9 | doubleClick | css=.x-grid3-row:nth-child(1) .subject:nth-child(1) > .grid_compact:nth-child(1) | ');
