@@ -13,6 +13,7 @@ require('dotenv').config({ path: path.resolve(__dirname, '../.env') })
 let userName =  defNewUser.getNewUser();
 //let userName = process.env.USER_NAME;
 let passWord = process.env.PASSWORD;
+let newPassWord = process.env.NEWPASS;
 let webSite = process.env.WEBSITE;
 let emailAdmin =process.env.Email_ADMIN_USERNAME;
 if (process.env.NODE_ENV == 'test') {
@@ -76,12 +77,12 @@ describe('NewUserRequest', function() {
 		console.log('10 | selectFrame | index=1 | ');
 		await driver.switchTo().frame(1);
 		await sleep(10000);
-		console.log('12 | storeText | xpath=/html/body/pre/a[16] | content');
-		vars['content'] = await driver.findElement(By.xpath('/html/body/pre/a[16]')).getText();
+		console.log('12 | storeText | xpath=/html/body/pre/a[4] | content');
+		vars['content'] = await driver.findElement(By.xpath('/html/body/pre/a[4]')).getText();
 		const emailCont = await driver.findElement(By.css('pre')).getText();
 		console.log('13 | echo | ${content} | ');
 		console.log(vars['content']);
-		console.log('14 | assertText | xpath=/html/body/pre/a[16] | ${content}');
+		console.log('14 | assertText | xpath=/html/body/pre/a[4] | ${content}');
 		expect(vars['content']).to.equal(userName.toLowerCase());
      
 		console.log('15 | storeAttribute | yourwebsite/reset-password | mytextlink');
@@ -94,16 +95,16 @@ describe('NewUserRequest', function() {
 		console.log('17 |link starts with'+ webSite+'reset-password');
 		console.log(webSite+'reset-password');
 		console.log('18 | open | ${mytextlink} | ');
-		
+
 		const completedLink = await scrap.addRest(emailCont,vars['mytextlink']);
 		await console.log(completedLink);
 		await driver.get(completedLink);
 		console.log('19 | selectFrame | relative=parent | ');
 		await sleep(10000);
 		console.log(' 20 | type | name=password | password!');
-		await driver.findElement(By.name('password')).sendKeys(passWord);
+		await driver.findElement(By.name('password')).sendKeys(newPassWord);
 		console.log(' 21 | type | name=password_repeat | password');
-		await driver.findElement(By.name('password_repeat')).sendKeys(passWord);
+		await driver.findElement(By.name('password_repeat')).sendKeys(newPassWord);
 		await sleep(2000);
 		console.log(' 22 | click | css=.holla-button | ');
 		await driver.findElement(By.css('.holla-button')).click();
